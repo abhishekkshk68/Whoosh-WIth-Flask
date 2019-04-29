@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+
+
+<h1 align="center">Search Results</h1>
+
+
+
+
+
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0" method="get", action="/search">
+          <input class="form-control mr-sm-2" align="center" type="text" name="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+      <table border = 1>
+         {% for hit in results %}
+
+            <tr>
+               <th> <span style="display:block;text-overflow: ellipsis;width: 800px;height=300px;overflow: hidden; white-space: nowrap;">
+
+	{{hit['title'] }}</span> </th>
+                <th> {{hit.rank}}</th>
+          <td>       <!-- {{ hit['author_data'] }} </td>-->
+                <a href="https://en.wikipedia.org/wiki/{{hit['title']}}" style="color:red;", target=_blank,>
+                   click her to read more
+                  </a>
+          </td>
+            </tr>
+
+         {% endfor %}
+      </table>
+
+
+{% endblock %}
